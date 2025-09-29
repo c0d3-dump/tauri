@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "notes": "v0.1.0",
+  "pub_date": "2025-09-29T10:00:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRZTdwTnNwVmxCSnpOTUpXamN6VkZJK3FCMUVBc3Fqb3RwYkNZa3VsaEkwOFVMdDhDZCswVjRmNExFTGFUREZTUUpJdkkyVnY2ek9VSVhPQk5aUzBnOTIrUkY0OUJSOEF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzU5MTIyNTE1CWZpbGU6dGF1cmktYXBwXzAuMS4wX3g2NC1zZXR1cC5leGUKc2Z2N3JMMlRHSUhsaGtMeDZIKzN6a2ZITlVIM0wzZ3FNU1VTL24zTzF2V000SDV2cEx0WG5yU3AvekNBd3J4Wmx2MDM4dDVSdm5aVmExRmdUQVV2RGc9PQo=",
+      "url": "https://github.com/c0d3-dump/tauri/releases/download/v0.1.0/tauri-app_0.1.0_x64-setup.nsis.zip"
+    }
+  }
+}
