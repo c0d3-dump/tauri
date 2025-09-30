@@ -49,15 +49,16 @@ jobs:
           releaseDraft: false
           prerelease: false
 
-      - name: Generate latest.json
+      - name: Generate and upload latest.json
         run: |
           VERSION="${{ github.ref_name }}"
           VERSION_NO_V="${VERSION#v}"
 
-          # Find the signature file
-          SIG_FILE=$(find src-tauri/target/release/bundle/nsis -name "*.nsis.zip.sig" -type f | head -n 1)
+          # Get the NSIS exe signature
+          SIG_FILE="src-tauri/target/release/bundle/nsis/tauri-app_${VERSION_NO_V}_x64-setup.exe.sig"
           SIGNATURE=$(cat "$SIG_FILE")
 
+          # Create latest.json
           cat > latest.json << EOF
           {
             "version": "$VERSION_NO_V",
@@ -66,7 +67,7 @@ jobs:
             "platforms": {
               "windows-x86_64": {
                 "signature": "$SIGNATURE",
-                "url": "https://github.com/${{ github.repository }}/releases/download/$VERSION/tauri-app_${VERSION_NO_V}_x64-setup.nsis.zip"
+                "url": "https://github.com/${{ github.repository }}/releases/download/$VERSION/tauri-app_${VERSION_NO_V}_x64-setup.exe"
               }
             }
           }
@@ -74,12 +75,9 @@ jobs:
 
           echo "Generated latest.json:"
           cat latest.json
-        shell: bash
 
-      - name: Upload latest.json to release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: latest.json
-          tag_name: ${{ github.ref_name }}
+          # Upload to release
+          gh release upload ${{ github.ref_name }} latest.json --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
