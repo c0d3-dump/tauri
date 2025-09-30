@@ -46,7 +46,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <p>v0.2.0</p>
+      <p>v0.3.0</p>
       <p>Click on the Tauri, Vite, and React logos to learn more.</p>
 
       <form
